@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"
+          ><img src="./icons/logo.png" alt=""
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Category
+              </a>
+              <ul class="dropdown-menu"></ul>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="#"
+                id="registerUser-modal"
+                data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop"
+                >Register</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="#"
+                id="loginUser-modal"
+                data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop"
+                >Login</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="#"
+                id="logoutUser-btn"
+                >Logout</a
+              >
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+              id="search-inp"
+            />
+            <button
+              class="btn btn-outline-success"
+              type="submit"
+              id="search-btn"
+            >
+              Search
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <!-- admin panel -->
+    <div class="w-100 justify-content-center text-center">
+      <div class="mt-5 d-flex flex-column w-100" id="admin-panel">
+        <h2>Admin panel</h2>
+
+        <input
+          type="text"
+          placeholder="Title"
+          class="mb-2 w-50 m-auto"
+          id="product-title"
+        />
+
+        <input
+          type="number"
+          placeholder="Price"
+          class="mb-2 w-50 m-auto"
+          id="product-price"
+        />
+
+        <input
+          type="text"
+          placeholder="Description"
+          class="mb-2 w-50 m-auto"
+          id="product-desc"
+        />
+
+        <input
+          type="url"
+          placeholder="Image url"
+          class="mb-2 w-50 m-auto"
+          id="product-image"
+        />
+
+        <input
+          type="text"
+          placeholder="Category"
+          class="mb-2 w-50 m-auto"
+          id="product-category"
+        />
+
+        <button class="btn btn-dark w-50 m-auto add-product-btn">
+          Add Product
+        </button>
+        <button class="btn btn-dark w-50 m-auto save-changes-btn">
+          Save Changes
+        </button>
+      </div>
+    </div>
+
+    <!-- content -->
+    <div
+      class="d-flex flex-wrap justify-content-center"
+      id="products-list"
+    ></div>
+
+    <!-- pagination -->
+    <div class="d-flex w-100 justify-content-center">
+      <a
+        class="btn btn-dark m-1"
+        href="#"
+        aria-label="Previous"
+        id="prev-page-btn"
+      >
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+      <a class="btn btn-dark m-1" href="#" aria-label="Next" id="next-page-btn">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </div>
+
+    <!-- modal for users -->
+    <div
+      class="modal fade"
+      id="staticBackdrop"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Account</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <!-- for register -->
+            <div
+              class="d-flex flex-column w-100 align-items-center"
+              id="registerUser-block"
+            >
+              <h2>Register user</h2>
+
+              <input
+                type="text"
+                id="reg-username"
+                placeholder="Username"
+                class="mb-2 w-100 form-control"
+              />
+
+              <input
+                type="number"
+                id="reg-age"
+                placeholder="Age"
+                class="mb-2 w-100 form-control"
+              />
+
+              <input
+                type="password"
+                id="reg-password"
+                placeholder="Password"
+                class="mb-2 w-100 form-control"
+              />
+
+              <input
+                type="password"
+                id="reg-passwordConfirm"
+                placeholder="Password Confirmation"
+                class="mb-2 w-100 form-control"
+              />
+
+              <div>
+                <input type="checkbox" id="isAdmin" />
+                <label for="isAdmin">Admin</label>
+              </div>
+            </div>
+
+            <!-- for login -->
+            <div
+              class="d-flex flex-column w-100 align-items-center"
+              id="loginUser-block"
+            >
+              <h2>Login user</h2>
+
+              <input
+                type="text"
+                id="login-username"
+                placeholder="Username"
+                class="mb-2 w-100 form-control"
+              />
+
+              <input
+                type="password"
+                id="login-password"
+                placeholder="Password"
+                class="mb-2 w-100 form-control"
+              />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-dark" id="registerUser-btn">
+              Register
+            </button>
+
+            <button type="button" class="btn btn-dark" id="loginUser-btn">
+              Login
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- modal for cart -->
+    <div
+      class="modal fade"
+      id="cartModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Cart</h1>
+            <button
+              type="button"
+              class="btn-close btn-close-cart"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <table class="border border-dark w-100 text-center"></table>
+            <h4 class="my-3" id="cart-total-cost"></h4>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              id="create-cart-order-btn"
+            >
+              ORDER
+            </button>
+            <button type="button" class="btn btn-danger" id="clean-cart-btn">
+              CLEAN ALL
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js/main.js"></script>
+  </body>
+  <footer id="footer">
+    <div class="container">
+      <h2 class="footer__title">Contact Us</h2>
+      <div class="footer__block">
+        <div class="footer__block_first">
+          <div class="footer__logo__block">
+            <a href="#" class="footer__logo">
+              <img src='./icons/logo.png' alt="error" />
+            </a>
+          </div>
+          <h2 class="footer__block_first__title">
+            Where you can find US:
+          </h2>
+          <div class="footer__block_first_social__block">
+            <a href="#" class="footer__block_first_social__item">
+              <img src="./icons/facebook.png" alt="error" />
+            </a>
+            <a href="#" class="footer__block_first_social__item">
+              <img src="./icons/google.png" alt="error" />
+            </a>
+            <a href="#" class="footer__block_first_social__item">
+              <img src="./icons/twitter.png" alt="error" />
+            </a>
+            <a href="#" class="footer__block_first_social__item">
+              <img src='./icons/youtube.png' alt="error" />
+            </a>
+          </div>
+        </div>
+        <div class="footer__block_second">
+          <p class="footer__block_second__title">Name</p>
+          <input
+            type="text"
+            placeholder="Name"
+            class="footer__block_second__input"
+          />
+          <p class="footer__block_second__title">Email</p>
+          <input
+            type="text"
+            placeholder="@gmail.com"
+            class="footer__block_second__input"
+          />
+          <input
+            type="text"
+            rows="4"
+            col="50"
+            placeholder="Type text here..."
+            class="footer__block_second__text-input"
+          />
+        </div>
+        <div class="footer__block_third">
+          <ul class="footer__block_third__qstns">
+            <a href="#">
+              <li class="footer__block_third__qstns__item">
+                Why better use our platform?
+              </li>
+            </a>
+            <a href="#">
+              <li class="footer__block_third__qstns__item">
+                How it works?
+              </li>
+            </a>
+          </ul>
+          <ul class="footer__block_third__docs">
+            <a href="#">
+              <li class="footer__block_third__docs__item">Resources</li>
+            </a>
+            <a href="#">
+              <li class="footer__block_third__docs__item">Platform</li>
+            </a>
+            <a href="#">
+              <li class="footer__block_third__docs__item">About Us</li>
+            </a>
+            <a href="#">
+              <li class="footer__block_third__docs__item">Sign Up</li>
+            </a>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <img src={FooterPng} alt="error" class="footer__img" />
+  </footer>
+</html>
